@@ -4,25 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Mudassir Ahmed - Python and full-stack developer focused on backend systems, automation workflows, and practical web products." />
-  <title>Mudassir Ahmed | Python & Full-Stack Developer</title>
+  <title>Mudassir Ahmed | Backend Automation Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f7f8fa;
-      --surface: #ffffff;
-      --ink: #101418;
-      --muted: #5d6673;
-      --line: #dbe1e8;
+      --bg: #f6f8fb;
+      --ink: #0d1218;
+      --muted: #5c6674;
+      --line: #dbe2eb;
+      --panel: #ffffff;
+      --panel-2: #eef3f7;
       --teal: #0f766e;
-      --teal-soft: #dff7f2;
+      --teal-2: #14b8a6;
+      --blue: #2563eb;
       --amber: #b45309;
-      --amber-soft: #fff1d6;
-      --green: #166534;
-      --shadow: 0 24px 80px rgba(16, 20, 24, 0.08);
+      --green: #15803d;
+      --dark: #101820;
+      --shadow: 0 30px 90px rgba(16, 24, 32, 0.12);
       --radius: 8px;
-      --max: 1120px;
+      --max: 1480px;
     }
 
     * {
@@ -38,8 +40,8 @@
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--ink);
       background:
-        linear-gradient(90deg, rgba(16, 20, 24, 0.035) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(16, 20, 24, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13, 18, 24, 0.045) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(13, 18, 24, 0.045) 1px, transparent 1px),
         var(--bg);
       background-size: 72px 72px;
       letter-spacing: 0;
@@ -50,45 +52,36 @@
       text-decoration: none;
     }
 
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    .page-shell {
-      min-height: 100vh;
-    }
-
     .nav {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(247, 248, 250, 0.92);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(219, 225, 232, 0.8);
+      z-index: 50;
+      border-bottom: 1px solid rgba(219, 226, 235, 0.9);
+      background: rgba(246, 248, 251, 0.92);
+      backdrop-filter: blur(16px);
     }
 
     .nav-inner {
       max-width: var(--max);
-      margin: 0 auto;
       min-height: 72px;
+      margin: 0 auto;
+      padding: 0 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      padding: 0 24px;
+      gap: 24px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
-      font-weight: 800;
+      font-weight: 900;
     }
 
     .brand-mark {
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       border-radius: var(--radius);
       display: grid;
       place-items: center;
@@ -96,6 +89,7 @@
       color: #fff;
       font-family: "JetBrains Mono", monospace;
       font-size: 13px;
+      box-shadow: 0 12px 30px rgba(13, 18, 24, 0.18);
     }
 
     .brand small {
@@ -103,50 +97,48 @@
       margin-top: 2px;
       color: var(--muted);
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .nav-links {
       display: flex;
+      gap: 6px;
       align-items: center;
-      gap: 8px;
     }
 
     .nav-links a {
       padding: 9px 12px;
+      border-radius: var(--radius);
       color: var(--muted);
       font-size: 14px;
-      font-weight: 700;
-      border-radius: var(--radius);
+      font-weight: 800;
     }
 
     .nav-links a:hover {
-      color: var(--ink);
       background: #fff;
+      color: var(--ink);
     }
 
-    .nav-cta,
     .button {
+      min-height: 42px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
-      min-height: 42px;
+      gap: 8px;
       padding: 0 16px;
-      border: 1px solid var(--ink);
       border-radius: var(--radius);
+      border: 1px solid var(--ink);
       background: var(--ink);
       color: #fff;
       font-size: 14px;
-      font-weight: 800;
+      font-weight: 900;
       line-height: 1;
-      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
     }
 
-    .nav-cta:hover,
     .button:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 30px rgba(16, 20, 24, 0.15);
+      box-shadow: 0 14px 36px rgba(13, 18, 24, 0.16);
     }
 
     .button.secondary {
@@ -155,34 +147,36 @@
       border-color: var(--line);
     }
 
-    .button.secondary:hover {
-      border-color: var(--ink);
+    .page-band {
+      border-bottom: 1px solid var(--line);
     }
 
-    main {
-      max-width: var(--max);
+    .wrap {
+      width: min(100%, var(--max));
       margin: 0 auto;
-      padding: 68px 24px 72px;
+      padding-left: 28px;
+      padding-right: 28px;
     }
 
     .hero {
-      min-height: calc(100vh - 120px);
+      min-height: calc(100vh - 72px);
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 360px;
+      grid-template-columns: minmax(0, 0.95fr) minmax(520px, 1.05fr);
+      gap: 38px;
       align-items: center;
-      gap: 72px;
-      padding-bottom: 56px;
+      padding-top: 58px;
+      padding-bottom: 58px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
       color: var(--teal);
       font-family: "JetBrains Mono", monospace;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
     }
 
@@ -196,131 +190,306 @@
     h1 {
       margin: 0;
       max-width: 820px;
-      font-size: clamp(46px, 7vw, 88px);
-      line-height: 0.98;
-      font-weight: 800;
+      font-size: clamp(48px, 6.2vw, 96px);
+      line-height: 0.96;
+      font-weight: 900;
       letter-spacing: 0;
     }
 
     .hero-copy {
-      max-width: 660px;
+      max-width: 680px;
       margin: 28px 0 0;
       color: var(--muted);
       font-size: 19px;
-      line-height: 1.8;
+      line-height: 1.75;
     }
 
     .hero-copy strong {
       color: var(--ink);
-      font-weight: 800;
+      font-weight: 900;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 34px;
+      margin-top: 32px;
     }
 
-    .hero-proof {
+    .stats-row {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
-      margin-top: 42px;
-      max-width: 680px;
+      margin-top: 36px;
+      max-width: 760px;
     }
 
-    .proof-item {
-      min-height: 104px;
+    .stat {
+      min-height: 112px;
       padding: 18px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.76);
+      background: rgba(255, 255, 255, 0.82);
     }
 
-    .proof-item strong {
+    .stat strong {
       display: block;
       margin-bottom: 8px;
-      font-size: 28px;
+      font-size: 30px;
       line-height: 1;
     }
 
-    .proof-item span {
+    .stat span {
       color: var(--muted);
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
       line-height: 1.45;
     }
 
-    .profile-panel {
+    .automation-stage {
+      min-height: 690px;
       position: relative;
-      align-self: stretch;
-      min-height: 560px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: var(--surface);
+      background:
+        radial-gradient(circle at 22% 18%, rgba(20, 184, 166, 0.2), transparent 28%),
+        radial-gradient(circle at 88% 72%, rgba(37, 99, 235, 0.16), transparent 30%),
+        linear-gradient(145deg, #ffffff 0%, #edf3f8 100%);
       box-shadow: var(--shadow);
+      perspective: 1100px;
     }
 
-    .profile-panel::before {
-      content: "";
+    .stage-grid {
       position: absolute;
       inset: 0;
+      opacity: 0.55;
       background:
-        linear-gradient(180deg, transparent 0%, rgba(16, 20, 24, 0.76) 100%),
-        url("https://avatars.githubusercontent.com/u/123233715?v=4") center top / cover no-repeat;
+        linear-gradient(90deg, rgba(13, 18, 24, 0.08) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(13, 18, 24, 0.08) 1px, transparent 1px);
+      background-size: 44px 44px;
+      transform: rotateX(58deg) rotateZ(-33deg) translate(20px, 260px) scale(1.2);
+      transform-origin: center;
     }
 
-    .profile-content {
-      position: relative;
-      padding: 24px;
-      color: #fff;
+    .stage-label {
+      position: absolute;
+      top: 22px;
+      left: 22px;
+      right: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      z-index: 4;
     }
 
-    .status {
+    .stage-label span,
+    .mini-window-label,
+    .code-title {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .live-pill {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-      margin-bottom: 18px;
+      gap: 8px;
       padding: 8px 10px;
-      border: 1px solid rgba(255, 255, 255, 0.28);
+      border: 1px solid rgba(21, 128, 61, 0.22);
       border-radius: var(--radius);
-      background: rgba(16, 20, 24, 0.46);
-      font-size: 12px;
+      background: #ecfdf3;
+      color: var(--green);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
       font-weight: 800;
     }
 
-    .status-dot {
-      width: 8px;
-      height: 8px;
+    .live-pill::before {
+      content: "";
+      width: 7px;
+      height: 7px;
       border-radius: 999px;
       background: #22c55e;
       box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.18);
     }
 
-    .profile-content h2 {
-      margin: 0 0 8px;
-      font-size: 28px;
+    .workflow-3d {
+      position: absolute;
+      inset: 92px 28px 34px;
+      transform-style: preserve-3d;
+      transform: rotateX(58deg) rotateZ(-36deg);
     }
 
-    .profile-content p {
-      margin: 0;
-      color: rgba(255, 255, 255, 0.78);
-      line-height: 1.65;
+    .node {
+      position: absolute;
+      width: 142px;
+      min-height: 96px;
+      padding: 16px;
+      border: 1px solid rgba(13, 18, 24, 0.12);
+      border-radius: var(--radius);
+      background: #ffffff;
+      box-shadow: 0 28px 48px rgba(13, 18, 24, 0.12);
+      transform-style: preserve-3d;
+    }
+
+    .node::after {
+      content: "";
+      position: absolute;
+      left: 10px;
+      right: -12px;
+      bottom: -14px;
+      height: 14px;
+      border-radius: 0 0 var(--radius) var(--radius);
+      background: rgba(13, 18, 24, 0.12);
+      transform: skewX(-42deg);
+      transform-origin: top;
+    }
+
+    .node b {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .node small {
+      display: block;
+      color: var(--muted);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      line-height: 1.6;
+      text-transform: uppercase;
+    }
+
+    .node.api { left: 36px; top: 44px; }
+    .node.score { left: 278px; top: 126px; }
+    .node.export { left: 524px; top: 48px; }
+    .node.mail { left: 184px; top: 340px; }
+    .node.ui { left: 468px; top: 318px; }
+
+    .flow {
+      position: absolute;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--teal), var(--blue));
+      box-shadow: 0 0 22px rgba(20, 184, 166, 0.36);
+      transform-origin: left center;
+    }
+
+    .flow.one { width: 210px; left: 156px; top: 138px; transform: rotate(18deg); }
+    .flow.two { width: 216px; left: 398px; top: 169px; transform: rotate(-18deg); }
+    .flow.three { width: 190px; left: 296px; top: 280px; transform: rotate(58deg); }
+    .flow.four { width: 230px; left: 304px; top: 392px; transform: rotate(-4deg); }
+
+    .floating-screen {
+      position: absolute;
+      z-index: 5;
+      right: 24px;
+      bottom: 28px;
+      width: 392px;
+      border: 1px solid rgba(13, 18, 24, 0.14);
+      border-radius: var(--radius);
+      background: #ffffff;
+      box-shadow: 0 28px 80px rgba(13, 18, 24, 0.18);
+      overflow: hidden;
+    }
+
+    .window-top {
+      height: 40px;
+      padding: 0 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      background: #f8fafc;
+    }
+
+    .dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dots i {
+      display: block;
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: #94a3b8;
+    }
+
+    .dashboard-shot {
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .shot-row {
+      display: grid;
+      grid-template-columns: 0.8fr 1fr 0.6fr;
+      gap: 10px;
+      align-items: center;
+      min-height: 44px;
+      padding: 10px;
+      border: 1px solid #edf2f7;
+      border-radius: var(--radius);
+      background: #fbfdff;
+    }
+
+    .shot-row span {
+      height: 10px;
+      border-radius: 999px;
+      background: #dbe7f0;
+    }
+
+    .shot-row span:nth-child(2) {
+      background: #c7f0e8;
+    }
+
+    .code-float {
+      position: absolute;
+      left: 26px;
+      bottom: 28px;
+      z-index: 6;
+      width: 356px;
+      padding: 18px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #111827;
+      box-shadow: 0 28px 80px rgba(13, 18, 24, 0.2);
+      color: #d1fae5;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .code-title {
+      color: #8ddbd1;
+      margin-bottom: 10px;
+    }
+
+    .code-float .muted {
+      color: #64748b;
+    }
+
+    .code-float .key {
+      color: #7dd3fc;
+    }
+
+    .code-float .str {
+      color: #fbbf24;
     }
 
     .section {
-      padding: 78px 0;
-      border-top: 1px solid var(--line);
+      padding: 86px 0;
+      border-bottom: 1px solid var(--line);
     }
 
     .section-head {
       display: grid;
-      grid-template-columns: 0.75fr 1fr;
+      grid-template-columns: minmax(280px, 0.7fr) 1fr;
       gap: 48px;
       align-items: end;
       margin-bottom: 34px;
@@ -330,14 +499,14 @@
       color: var(--teal);
       font-family: "JetBrains Mono", monospace;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
     }
 
     .section h2 {
       margin: 10px 0 0;
-      font-size: clamp(32px, 4vw, 48px);
-      line-height: 1.05;
+      font-size: clamp(34px, 4.4vw, 58px);
+      line-height: 1.02;
       letter-spacing: 0;
     }
 
@@ -350,75 +519,42 @@
 
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(12, minmax(0, 1fr));
       gap: 16px;
     }
 
     .project {
+      grid-column: span 6;
+      min-height: 480px;
       display: flex;
       flex-direction: column;
-      min-height: 318px;
-      padding: 22px;
+      overflow: hidden;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.86);
+      background: rgba(255, 255, 255, 0.9);
       transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
     }
 
     .project:hover {
       transform: translateY(-3px);
-      border-color: rgba(15, 118, 110, 0.38);
+      border-color: rgba(15, 118, 110, 0.34);
       box-shadow: var(--shadow);
     }
 
     .project.featured {
-      grid-column: span 2;
-      min-height: 360px;
+      grid-column: span 12;
+      min-height: 540px;
       display: grid;
-      grid-template-columns: 1fr 0.88fr;
-      gap: 28px;
-      background: var(--ink);
+      grid-template-columns: 0.78fr 1.22fr;
+      background: var(--dark);
       color: #fff;
-      border-color: var(--ink);
-      overflow: hidden;
+      border-color: var(--dark);
     }
 
-    .project-visual {
-      min-height: 100%;
-      border-radius: var(--radius);
-      background:
-        linear-gradient(135deg, rgba(15, 118, 110, 0.25), rgba(180, 83, 9, 0.2)),
-        radial-gradient(circle at 20% 25%, rgba(255, 255, 255, 0.14), transparent 34%),
-        #172026;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      padding: 20px;
-      display: grid;
-      align-content: end;
-    }
-
-    .metric-row {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-
-    .metric {
-      padding: 14px;
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
-    .metric strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 20px;
-    }
-
-    .metric span {
-      color: rgba(255, 255, 255, 0.66);
-      font-size: 12px;
-      font-weight: 700;
+    .project-copy {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
     }
 
     .project-top {
@@ -432,18 +568,38 @@
       color: var(--teal);
       font-family: "JetBrains Mono", monospace;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
     }
 
     .featured .project-type {
-      color: #7dd3c7;
+      color: #77ddd1;
+    }
+
+    .project-link {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: var(--ink);
+      background: #fff;
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .featured .project-link {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.08);
     }
 
     .project h3 {
       margin: 0 0 14px;
-      font-size: 25px;
-      line-height: 1.15;
+      font-size: clamp(26px, 3.2vw, 42px);
+      line-height: 1.05;
       letter-spacing: 0;
     }
 
@@ -474,34 +630,139 @@
       background: #fff;
       font-family: "JetBrains Mono", monospace;
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .featured .tag {
       border-color: rgba(255, 255, 255, 0.14);
       background: rgba(255, 255, 255, 0.08);
-      color: rgba(255, 255, 255, 0.76);
+      color: rgba(255, 255, 255, 0.78);
     }
 
-    .project-link {
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      flex: 0 0 auto;
-      border: 1px solid var(--line);
+    .screenshot {
+      min-height: 260px;
+      padding: 18px;
+      border-top: 1px solid var(--line);
+      background: linear-gradient(145deg, #eaf1f7, #ffffff);
+    }
+
+    .featured .screenshot {
+      border-top: 0;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(20, 184, 166, 0.22), transparent 26%),
+        radial-gradient(circle at 86% 82%, rgba(37, 99, 235, 0.22), transparent 28%),
+        #111827;
+    }
+
+    .browser-shot,
+    .code-shot {
+      height: 100%;
+      min-height: 230px;
+      overflow: hidden;
+      border: 1px solid rgba(13, 18, 24, 0.12);
       border-radius: var(--radius);
-      color: var(--ink);
       background: #fff;
-      font-size: 18px;
-      font-weight: 800;
+      box-shadow: 0 20px 48px rgba(13, 18, 24, 0.12);
     }
 
-    .featured .project-link {
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.16);
-      background: rgba(255, 255, 255, 0.08);
+    .featured .browser-shot {
+      min-height: 500px;
+      border-color: rgba(255, 255, 255, 0.12);
+      background: #0b1220;
+      box-shadow: none;
     }
+
+    .browser-body {
+      padding: 16px;
+    }
+
+    .screen-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .screen-title strong {
+      font-size: 16px;
+    }
+
+    .screen-title small {
+      color: var(--muted);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .featured .screen-title strong {
+      color: #fff;
+    }
+
+    .featured .screen-title small {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .ui-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 12px;
+    }
+
+    .ui-panel,
+    .chart-panel,
+    .lead-row {
+      border: 1px solid #edf2f7;
+      border-radius: var(--radius);
+      background: #fbfdff;
+      padding: 12px;
+    }
+
+    .featured .ui-panel,
+    .featured .chart-panel,
+    .featured .lead-row {
+      border-color: rgba(255, 255, 255, 0.09);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .bar {
+      height: 10px;
+      border-radius: 999px;
+      background: #cbd5e1;
+      margin: 9px 0;
+    }
+
+    .bar.teal { background: #5eead4; }
+    .bar.blue { background: #93c5fd; }
+    .bar.amber { background: #fbbf24; }
+
+    .lead-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .lead-row {
+      display: grid;
+      grid-template-columns: 1fr 70px 54px;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .code-shot {
+      padding: 16px;
+      background: #111827;
+      color: #d1fae5;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .code-shot .muted { color: #64748b; }
+    .code-shot .key { color: #7dd3fc; }
+    .code-shot .str { color: #fbbf24; }
+    .code-shot .fn { color: #5eead4; }
 
     .capability-grid {
       display: grid;
@@ -510,35 +771,35 @@
     }
 
     .capability {
-      padding: 22px;
+      min-height: 240px;
+      padding: 24px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.82);
-      min-height: 210px;
+      background: rgba(255, 255, 255, 0.88);
     }
 
     .capability-number {
-      display: inline-grid;
-      place-items: center;
       width: 34px;
       height: 34px;
+      display: inline-grid;
+      place-items: center;
       margin-bottom: 18px;
       border-radius: var(--radius);
-      background: var(--teal-soft);
+      background: #dff7f2;
       color: var(--teal);
       font-family: "JetBrains Mono", monospace;
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 900;
     }
 
     .capability:nth-child(2) .capability-number {
-      background: var(--amber-soft);
+      background: #fff1d6;
       color: var(--amber);
     }
 
     .capability h3 {
       margin: 0 0 12px;
-      font-size: 20px;
+      font-size: 22px;
     }
 
     .capability p {
@@ -547,10 +808,25 @@
       line-height: 1.7;
     }
 
+    .stack-layout {
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 16px;
+    }
+
+    .stack-wrap,
+    .terminal-card {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.88);
+    }
+
     .stack-wrap {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      align-content: flex-start;
     }
 
     .stack-pill {
@@ -558,40 +834,54 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: #fff;
-      color: var(--ink);
       font-size: 14px;
-      font-weight: 800;
+      font-weight: 900;
     }
+
+    .terminal-card {
+      background: #111827;
+      color: #d1fae5;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .terminal-card .muted { color: #64748b; }
+    .terminal-card .key { color: #7dd3fc; }
+    .terminal-card .str { color: #fbbf24; }
 
     .contact-band {
       display: grid;
       grid-template-columns: 1fr auto;
-      align-items: center;
       gap: 34px;
-      padding: 34px;
-      border: 1px solid var(--ink);
+      align-items: center;
+      padding: 36px;
       border-radius: var(--radius);
-      background: var(--ink);
+      border: 1px solid var(--dark);
+      background:
+        radial-gradient(circle at 18% 10%, rgba(20, 184, 166, 0.22), transparent 28%),
+        var(--dark);
       color: #fff;
     }
 
     .contact-band h2 {
       margin: 0 0 12px;
-      font-size: clamp(30px, 4vw, 48px);
+      font-size: clamp(32px, 4.2vw, 58px);
+      line-height: 1.04;
     }
 
     .contact-band p {
       margin: 0;
-      max-width: 700px;
+      max-width: 760px;
       color: rgba(255, 255, 255, 0.72);
       line-height: 1.75;
     }
 
     .contact-actions {
+      min-width: 220px;
       display: flex;
       flex-direction: column;
       gap: 10px;
-      min-width: 220px;
     }
 
     .contact-actions .button {
@@ -603,25 +893,36 @@
     .contact-actions .button.secondary {
       color: #fff;
       background: transparent;
-      border-color: rgba(255, 255, 255, 0.24);
+      border-color: rgba(255, 255, 255, 0.26);
     }
 
     footer {
-      padding: 26px 24px 42px;
       color: var(--muted);
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
+      padding: 26px 0 42px;
     }
 
     .footer-inner {
-      max-width: var(--max);
-      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      border-top: 1px solid var(--line);
-      padding-top: 22px;
+    }
+
+    @media (max-width: 1180px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .automation-stage {
+        min-height: 620px;
+      }
+
+      .workflow-3d {
+        transform: rotateX(56deg) rotateZ(-32deg) scale(0.9);
+        transform-origin: center;
+      }
     }
 
     @media (max-width: 920px) {
@@ -629,53 +930,82 @@
         display: none;
       }
 
-      main {
-        padding-top: 42px;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 34px;
-      }
-
-      .profile-panel {
-        min-height: 520px;
-        max-width: 520px;
-      }
-
       .section-head,
+      .project.featured,
+      .stack-layout,
       .contact-band {
         grid-template-columns: 1fr;
       }
 
-      .project-grid,
-      .project.featured,
+      .project,
+      .project.featured {
+        grid-column: span 12;
+      }
+
       .capability-grid {
         grid-template-columns: 1fr;
       }
 
-      .project.featured {
-        grid-column: span 1;
+      .floating-screen,
+      .code-float {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        top: auto;
+        width: calc(100% - 40px);
+        margin: 20px;
       }
-    }
 
-    @media (max-width: 640px) {
-      .nav-inner {
-        min-height: 64px;
-        padding: 0 16px;
+      .automation-stage {
+        min-height: auto;
+        padding-top: 70px;
       }
 
-      .brand small,
-      .nav-cta {
+      .workflow-3d {
+        position: relative;
+        inset: auto;
+        min-height: 410px;
+        transform: none;
+        margin: 0 20px;
+      }
+
+      .stage-grid,
+      .flow {
         display: none;
       }
 
-      main {
-        padding: 32px 16px 54px;
+      .node {
+        width: calc(50% - 12px);
+        transform: none;
+      }
+
+      .node::after {
+        display: none;
+      }
+
+      .node.api { left: 0; top: 0; }
+      .node.score { left: calc(50% + 12px); top: 0; }
+      .node.export { left: 0; top: 120px; }
+      .node.mail { left: calc(50% + 12px); top: 120px; }
+      .node.ui { left: 25%; top: 240px; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner,
+      .wrap {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .brand small,
+      .nav .button {
+        display: none;
       }
 
       .hero {
-        min-height: auto;
+        padding-top: 38px;
+        padding-bottom: 38px;
       }
 
       h1 {
@@ -686,98 +1016,148 @@
         font-size: 17px;
       }
 
-      .hero-proof {
+      .stats-row {
         grid-template-columns: 1fr;
       }
 
-      .profile-panel {
-        min-height: 430px;
+      .automation-stage {
+        border-left: 0;
+        border-right: 0;
+        border-radius: 0;
+        margin-left: -16px;
+        margin-right: -16px;
       }
 
-      .section {
-        padding: 54px 0;
+      .node {
+        width: 100%;
       }
 
-      .project,
-      .capability,
-      .contact-band {
-        padding: 18px;
+      .node.api { left: 0; top: 0; }
+      .node.score { left: 0; top: 112px; }
+      .node.export { left: 0; top: 224px; }
+      .node.mail { left: 0; top: 336px; }
+      .node.ui { left: 0; top: 448px; }
+
+      .workflow-3d {
+        min-height: 560px;
+      }
+
+      .ui-grid,
+      .lead-row {
+        grid-template-columns: 1fr;
       }
 
       .footer-inner {
-        align-items: flex-start;
         flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page-shell">
-    <header class="nav">
-      <div class="nav-inner">
-        <a class="brand" href="#top" aria-label="Mudassir Ahmed home">
-          <span class="brand-mark">MA</span>
-          <span>Mudassir Ahmed<small>Python & full-stack developer</small></span>
-        </a>
-        <nav class="nav-links" aria-label="Primary navigation">
-          <a href="#work">Work</a>
-          <a href="#capabilities">Capabilities</a>
-          <a href="#stack">Stack</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <a class="nav-cta" href="mailto:abbasimudasir2098@gmail.com">Email me</a>
-      </div>
-    </header>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Mudassir Ahmed home">
+        <span class="brand-mark">MA</span>
+        <span>Mudassir Ahmed<small>Backend automation portfolio</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#work">Screens</a>
+        <a href="#capabilities">Automation</a>
+        <a href="#stack">Code</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="button" href="mailto:abbasimudasir2098@gmail.com">Email me</a>
+    </div>
+  </header>
 
-    <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
+  <main id="top">
+    <section class="page-band">
+      <div class="wrap hero">
         <div>
           <div class="eyebrow">Karachi, Pakistan - Available globally</div>
-          <h1 id="hero-title">Backend systems, automation, and practical web products.</h1>
+          <h1>Backend automation that looks as sharp as it works.</h1>
           <p class="hero-copy">
-            I am <strong>Mudassir Ahmed</strong>, a Python and full-stack developer building reliable Flask/FastAPI backends, automation workflows, and clean interfaces that turn ideas into working software.
+            I am <strong>Mudassir Ahmed</strong>, a Python and full-stack developer building Flask/FastAPI systems, automation workflows, dashboards, and practical products with clean code and clear documentation.
           </p>
           <div class="hero-actions">
-            <a class="button" href="#work">View selected work</a>
+            <a class="button" href="#work">View project screens</a>
             <a class="button secondary" href="https://github.com/mudassirabbasi1" target="_blank" rel="noreferrer">GitHub profile</a>
           </div>
-          <div class="hero-proof" aria-label="Profile highlights">
-            <div class="proof-item">
+          <div class="stats-row" aria-label="Profile highlights">
+            <div class="stat">
               <strong>12</strong>
               <span>public repositories groomed around real project signals</span>
             </div>
-            <div class="proof-item">
+            <div class="stat">
               <strong>6</strong>
               <span>selected projects positioned for recruiters and clients</span>
             </div>
-            <div class="proof-item">
-              <strong>3</strong>
-              <span>focus areas: backend, automation, and full-stack delivery</span>
+            <div class="stat">
+              <strong>3D</strong>
+              <span>automation workflow visualized from data to dashboard</span>
             </div>
           </div>
         </div>
 
-        <aside class="profile-panel" aria-label="Mudassir Ahmed profile image and status">
-          <div class="profile-content">
-            <div class="status"><span class="status-dot"></span> Open to backend, full-stack, and automation work</div>
-            <h2>Clean code. Clear docs. Useful products.</h2>
-            <p>Python developer focused on building projects that can be inspected, run, and extended.</p>
+        <aside class="automation-stage" aria-label="3D automation workflow visual">
+          <div class="stage-grid"></div>
+          <div class="stage-label">
+            <span>Automation pipeline / leadhive</span>
+            <span class="live-pill">online</span>
+          </div>
+          <div class="workflow-3d">
+            <div class="flow one"></div>
+            <div class="flow two"></div>
+            <div class="flow three"></div>
+            <div class="flow four"></div>
+            <div class="node api"><b>Source API</b><small>public records<br>business data</small></div>
+            <div class="node score"><b>Analyzer</b><small>site scoring<br>quality checks</small></div>
+            <div class="node export"><b>CSV Export</b><small>pandas output<br>lead review</small></div>
+            <div class="node mail"><b>Drafts</b><small>personalized<br>safe sending</small></div>
+            <div class="node ui"><b>Dashboard</b><small>React table<br>status tracking</small></div>
+          </div>
+
+          <div class="floating-screen">
+            <div class="window-top">
+              <div class="dots"><i></i><i></i><i></i></div>
+              <span class="mini-window-label">Project screenshot</span>
+            </div>
+            <div class="dashboard-shot">
+              <div class="screen-title">
+                <strong>LeadHive Dashboard</strong>
+                <small>score / status / export</small>
+              </div>
+              <div class="shot-row"><span></span><span></span><span></span></div>
+              <div class="shot-row"><span></span><span></span><span></span></div>
+              <div class="shot-row"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+
+          <div class="code-float" aria-label="Automation code preview">
+            <div class="code-title">backend/app/services/lead_pipeline.py</div>
+            <div><span class="key">async def</span> <span class="fn">run_search</span>(city, niche):</div>
+            <div>&nbsp;&nbsp;leads = <span class="key">await</span> collect_public_sources(city)</div>
+            <div>&nbsp;&nbsp;scored = [analyze_site(x) <span class="key">for</span> x <span class="key">in</span> leads]</div>
+            <div>&nbsp;&nbsp;<span class="key">return</span> export_csv(scored, <span class="str">"leads.csv"</span>)</div>
           </div>
         </aside>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="work" aria-labelledby="work-title">
+    <section class="section" id="work">
+      <div class="wrap">
         <div class="section-head">
           <div>
-            <div class="section-kicker">Selected work</div>
-            <h2 id="work-title">Projects with a clear product story.</h2>
+            <div class="section-kicker">Project screens</div>
+            <h2>Screenshots, code, and the story behind the build.</h2>
           </div>
-          <p>These are the strongest public projects from my GitHub profile, rewritten around what they demonstrate technically and practically.</p>
+          <p>The portfolio now leads with project evidence instead of a portrait. Each project shows either a UI screen, backend code, or a product workflow so visitors can immediately understand the work.</p>
         </div>
 
         <div class="project-grid">
           <article class="project featured">
-            <div>
+            <div class="project-copy">
               <div class="project-top">
                 <span class="project-type">Full-stack automation</span>
                 <a class="project-link" href="https://github.com/mudassirabbasi1/leadhive-automation" target="_blank" rel="noreferrer" aria-label="Open LeadHive Automation repository">-&gt;</a>
@@ -791,83 +1171,171 @@
                 <span class="tag">SQLAlchemy</span>
               </div>
             </div>
-            <div class="project-visual" aria-hidden="true">
-              <div class="metric-row">
-                <div class="metric"><strong>API</strong><span>auth, leads, export</span></div>
-                <div class="metric"><strong>UI</strong><span>dashboard workflow</span></div>
-                <div class="metric"><strong>Data</strong><span>scoring and CSV</span></div>
-                <div class="metric"><strong>Ethics</strong><span>draft-first sending</span></div>
+            <div class="screenshot">
+              <div class="browser-shot">
+                <div class="window-top">
+                  <div class="dots"><i></i><i></i><i></i></div>
+                  <span class="mini-window-label">Dashboard screenshot</span>
+                </div>
+                <div class="browser-body">
+                  <div class="screen-title">
+                    <strong>Lead pipeline</strong>
+                    <small>search -> score -> draft -> export</small>
+                  </div>
+                  <div class="ui-grid">
+                    <div class="ui-panel">
+                      <div class="bar teal" style="width: 82%"></div>
+                      <div class="bar" style="width: 64%"></div>
+                      <div class="bar blue" style="width: 72%"></div>
+                      <div class="bar" style="width: 48%"></div>
+                    </div>
+                    <div class="chart-panel">
+                      <div class="lead-list">
+                        <div class="lead-row"><span class="bar teal"></span><span class="bar blue"></span><span class="bar amber"></span></div>
+                        <div class="lead-row"><span class="bar"></span><span class="bar teal"></span><span class="bar blue"></span></div>
+                        <div class="lead-row"><span class="bar blue"></span><span class="bar"></span><span class="bar teal"></span></div>
+                        <div class="lead-row"><span class="bar"></span><span class="bar amber"></span><span class="bar"></span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="code-shot" style="margin-top: 14px; min-height: 132px;">
+                    <div><span class="key">router.post</span>(<span class="str">"/jobs/search"</span>)</div>
+                    <div><span class="key">def</span> <span class="fn">create_search_job</span>(payload):</div>
+                    <div>&nbsp;&nbsp;job = lead_pipeline.queue(payload.city, payload.niche)</div>
+                    <div>&nbsp;&nbsp;<span class="key">return</span> serialize_job(job)</div>
+                  </div>
+                </div>
               </div>
             </div>
           </article>
 
           <article class="project">
-            <div class="project-top">
-              <span class="project-type">Flask CRUD</span>
-              <a class="project-link" href="https://github.com/mudassirabbasi1/TaskFlow-Pro" target="_blank" rel="noreferrer" aria-label="Open TaskFlow Pro repository">-&gt;</a>
+            <div class="project-copy">
+              <div class="project-top">
+                <span class="project-type">Flask CRUD</span>
+                <a class="project-link" href="https://github.com/mudassirabbasi1/TaskFlow-Pro" target="_blank" rel="noreferrer" aria-label="Open TaskFlow Pro repository">-&gt;</a>
+              </div>
+              <h3>TaskFlow Pro</h3>
+              <p>A Flask task manager demonstrating routing, ORM-backed CRUD behavior, server-rendered templates, and persistent task state.</p>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Flask</span>
+                <span class="tag">SQLite</span>
+              </div>
             </div>
-            <h3>TaskFlow Pro</h3>
-            <p>A Flask task manager demonstrating routing, ORM-backed CRUD behavior, server-rendered templates, and persistent task state.</p>
-            <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">Flask</span>
-              <span class="tag">SQLite</span>
-            </div>
-          </article>
-
-          <article class="project">
-            <div class="project-top">
-              <span class="project-type">Web utility</span>
-              <a class="project-link" href="https://github.com/mudassirabbasi1/url-shortener" target="_blank" rel="noreferrer" aria-label="Open URL Shortener repository">-&gt;</a>
-            </div>
-            <h3>URL Shortener</h3>
-            <p>A compact short-link service with redirects, click tracking, analytics pages, and a Bootstrap interface.</p>
-            <div class="tags">
-              <span class="tag">Flask</span>
-              <span class="tag">SQLAlchemy</span>
-              <span class="tag">Bootstrap</span>
-            </div>
-          </article>
-
-          <article class="project">
-            <div class="project-top">
-              <span class="project-type">Trading automation</span>
-              <a class="project-link" href="https://github.com/mudassirabbasi1/ibkr-paper-trading-app" target="_blank" rel="noreferrer" aria-label="Open IBKR Paper Trading repository">-&gt;</a>
-            </div>
-            <h3>IBKR Paper Trading App</h3>
-            <p>A Python starter for Interactive Brokers paper-trading workflows, strategy testing, and market-data experiments.</p>
-            <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">IBKR API</span>
-              <span class="tag">Automation</span>
+            <div class="screenshot">
+              <div class="browser-shot">
+                <div class="window-top"><div class="dots"><i></i><i></i><i></i></div><span class="mini-window-label">Task UI</span></div>
+                <div class="browser-body">
+                  <div class="screen-title"><strong>Task board</strong><small>create / update / complete</small></div>
+                  <div class="lead-list">
+                    <div class="lead-row"><span class="bar teal"></span><span class="bar"></span><span class="bar blue"></span></div>
+                    <div class="lead-row"><span class="bar"></span><span class="bar amber"></span><span class="bar"></span></div>
+                    <div class="lead-row"><span class="bar blue"></span><span class="bar teal"></span><span class="bar"></span></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </article>
 
           <article class="project">
-            <div class="project-top">
-              <span class="project-type">Static product page</span>
-              <a class="project-link" href="https://github.com/mudassirabbasi1/LeadHive" target="_blank" rel="noreferrer" aria-label="Open LeadHive repository">-&gt;</a>
+            <div class="project-copy">
+              <div class="project-top">
+                <span class="project-type">Web utility</span>
+                <a class="project-link" href="https://github.com/mudassirabbasi1/url-shortener" target="_blank" rel="noreferrer" aria-label="Open URL Shortener repository">-&gt;</a>
+              </div>
+              <h3>URL Shortener</h3>
+              <p>A short-link service with redirects, click tracking, analytics pages, and a Bootstrap interface.</p>
+              <div class="tags">
+                <span class="tag">Flask</span>
+                <span class="tag">SQLAlchemy</span>
+                <span class="tag">Bootstrap</span>
+              </div>
             </div>
-            <h3>LeadHive Landing Page</h3>
-            <p>A responsive service landing page with clear offer positioning, pricing sections, workflow explanation, and contact flow.</p>
-            <div class="tags">
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">JavaScript</span>
+            <div class="screenshot">
+              <div class="code-shot">
+                <div><span class="muted"># redirect route</span></div>
+                <div><span class="key">@app.route</span>(<span class="str">"/&lt;short_code&gt;"</span>)</div>
+                <div><span class="key">def</span> <span class="fn">redirect_url</span>(short_code):</div>
+                <div>&nbsp;&nbsp;link = Url.query.filter_by(code=short_code).first_or_404()</div>
+                <div>&nbsp;&nbsp;link.clicks += 1</div>
+                <div>&nbsp;&nbsp;db.session.commit()</div>
+                <div>&nbsp;&nbsp;<span class="key">return</span> redirect(link.original_url)</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-copy">
+              <div class="project-top">
+                <span class="project-type">Trading automation</span>
+                <a class="project-link" href="https://github.com/mudassirabbasi1/ibkr-paper-trading-app" target="_blank" rel="noreferrer" aria-label="Open IBKR Paper Trading repository">-&gt;</a>
+              </div>
+              <h3>IBKR Paper Trading App</h3>
+              <p>A Python starter for Interactive Brokers paper-trading workflows, strategy testing, and market-data experiments.</p>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">IBKR API</span>
+                <span class="tag">Automation</span>
+              </div>
+            </div>
+            <div class="screenshot">
+              <div class="code-shot">
+                <div><span class="key">from</span> ib_insync <span class="key">import</span> IB, Stock, MarketOrder</div>
+                <div>ib = IB()</div>
+                <div>ib.connect(<span class="str">"127.0.0.1"</span>, 7497, clientId=1)</div>
+                <div>contract = Stock(<span class="str">"AAPL"</span>, <span class="str">"SMART"</span>, <span class="str">"USD"</span>)</div>
+                <div>order = MarketOrder(<span class="str">"BUY"</span>, 1)</div>
+                <div>trade = ib.placeOrder(contract, order)</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-copy">
+              <div class="project-top">
+                <span class="project-type">Static product page</span>
+                <a class="project-link" href="https://github.com/mudassirabbasi1/LeadHive" target="_blank" rel="noreferrer" aria-label="Open LeadHive repository">-&gt;</a>
+              </div>
+              <h3>LeadHive Landing Page</h3>
+              <p>A responsive service landing page with offer positioning, pricing sections, workflow explanation, and contact flow.</p>
+              <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+            </div>
+            <div class="screenshot">
+              <div class="browser-shot">
+                <div class="window-top"><div class="dots"><i></i><i></i><i></i></div><span class="mini-window-label">Landing screenshot</span></div>
+                <div class="browser-body">
+                  <div class="screen-title"><strong>Leads and outreach</strong><small>pricing / form / CTA</small></div>
+                  <div class="ui-panel">
+                    <div class="bar teal" style="width: 74%"></div>
+                    <div class="bar" style="width: 92%"></div>
+                    <div class="bar amber" style="width: 42%"></div>
+                  </div>
+                  <div class="ui-grid" style="margin-top: 12px;">
+                    <div class="chart-panel"><div class="bar blue" style="width: 66%"></div><div class="bar" style="width: 48%"></div></div>
+                    <div class="chart-panel"><div class="bar teal" style="width: 86%"></div><div class="bar amber" style="width: 58%"></div></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="capabilities" aria-labelledby="capabilities-title">
+    <section class="section" id="capabilities">
+      <div class="wrap">
         <div class="section-head">
           <div>
-            <div class="section-kicker">Capabilities</div>
-            <h2 id="capabilities-title">How I can help.</h2>
+            <div class="section-kicker">Automation stack</div>
+            <h2>3D workflow, real code, useful outputs.</h2>
           </div>
-          <p>I focus on practical implementation work: systems that run, documentation that explains the work, and interfaces that make the product feel complete.</p>
+          <p>I focus on systems that move data from source to product: APIs, analysis, dashboards, CSV exports, and user-facing screens.</p>
         </div>
-
         <div class="capability-grid">
           <article class="capability">
             <span class="capability-number">01</span>
@@ -885,36 +1353,49 @@
             <p>Responsive frontends, project documentation, GitHub profile cleanup, and deployment-ready presentation for real users.</p>
           </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="stack" aria-labelledby="stack-title">
+    <section class="section" id="stack">
+      <div class="wrap">
         <div class="section-head">
           <div>
-            <div class="section-kicker">Stack</div>
-            <h2 id="stack-title">Tools I use to ship.</h2>
+            <div class="section-kicker">Code and tools</div>
+            <h2>Focused stack for backend-heavy products.</h2>
           </div>
-          <p>A focused toolset for backend-heavy products, automation systems, and modern web interfaces.</p>
+          <p>A practical toolset for APIs, automation systems, dashboards, and portfolio-ready web interfaces.</p>
         </div>
-        <div class="stack-wrap">
-          <span class="stack-pill">Python</span>
-          <span class="stack-pill">Flask</span>
-          <span class="stack-pill">FastAPI</span>
-          <span class="stack-pill">SQLAlchemy</span>
-          <span class="stack-pill">SQLite</span>
-          <span class="stack-pill">PostgreSQL</span>
-          <span class="stack-pill">React</span>
-          <span class="stack-pill">TypeScript</span>
-          <span class="stack-pill">Vite</span>
-          <span class="stack-pill">HTML</span>
-          <span class="stack-pill">CSS</span>
-          <span class="stack-pill">Git</span>
+        <div class="stack-layout">
+          <div class="stack-wrap">
+            <span class="stack-pill">Python</span>
+            <span class="stack-pill">Flask</span>
+            <span class="stack-pill">FastAPI</span>
+            <span class="stack-pill">SQLAlchemy</span>
+            <span class="stack-pill">SQLite</span>
+            <span class="stack-pill">PostgreSQL</span>
+            <span class="stack-pill">React</span>
+            <span class="stack-pill">TypeScript</span>
+            <span class="stack-pill">Vite</span>
+            <span class="stack-pill">HTML</span>
+            <span class="stack-pill">CSS</span>
+            <span class="stack-pill">Git</span>
+          </div>
+          <div class="terminal-card">
+            <div><span class="muted">~/portfolio</span> npm run build</div>
+            <div><span class="key">building</span> production site...</div>
+            <div><span class="key">checking</span> project links, anchors, copy</div>
+            <div><span class="key">publishing</span> to GitHub Pages</div>
+            <div><span class="str">status:</span> clean, fast, professional</div>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="contact" aria-labelledby="contact-title">
+    <section class="section" id="contact">
+      <div class="wrap">
         <div class="contact-band">
           <div>
-            <h2 id="contact-title">Need a backend, automation, or full-stack project built?</h2>
+            <h2>Need a backend, automation, or full-stack project built?</h2>
             <p>Send me a note about what you are building. I am available for backend work, automation workflows, freelance websites, and early-career software roles.</p>
           </div>
           <div class="contact-actions">
@@ -923,15 +1404,15 @@
             <a class="button secondary" href="https://www.linkedin.com/in/mudassir-ahmed-b1b84727b/" target="_blank" rel="noreferrer">LinkedIn</a>
           </div>
         </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="footer-inner">
-        <span>(c) 2026 Mudassir Ahmed</span>
-        <span>Karachi, Pakistan</span>
       </div>
-    </footer>
-  </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>(c) 2026 Mudassir Ahmed</span>
+      <span>Karachi, Pakistan</span>
+    </div>
+  </footer>
 </body>
 </html>
