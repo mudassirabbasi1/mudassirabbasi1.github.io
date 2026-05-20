@@ -355,9 +355,185 @@
     .workflow-3d {
       position: absolute;
       inset: 92px 28px 34px;
+      z-index: 3;
       transform-style: preserve-3d;
       transform: rotateX(58deg) rotateZ(-36deg);
     }
+
+    .object-layer {
+      position: absolute;
+      inset: 76px 24px 28px;
+      z-index: 2;
+      pointer-events: none;
+      perspective: 920px;
+      transform-style: preserve-3d;
+    }
+
+    .iso-object {
+      position: absolute;
+      transform-style: preserve-3d;
+      filter: drop-shadow(0 24px 28px rgba(13, 18, 24, 0.16));
+      animation: objectDrift 7.5s ease-in-out infinite;
+    }
+
+    .iso-object i,
+    .iso-object b {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 900;
+      letter-spacing: 0;
+      color: rgba(255, 255, 255, 0.9);
+      text-transform: uppercase;
+    }
+
+    .iso-cube {
+      width: 78px;
+      height: 78px;
+      transform: rotateX(-24deg) rotateY(34deg) rotateZ(-8deg);
+    }
+
+    .iso-cube span {
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background: linear-gradient(145deg, rgba(20, 184, 166, 0.94), rgba(37, 99, 235, 0.9));
+    }
+
+    .iso-cube .front { transform: translateZ(39px); }
+    .iso-cube .back { transform: rotateY(180deg) translateZ(39px); opacity: 0.4; }
+    .iso-cube .right { transform: rotateY(90deg) translateZ(39px); background: linear-gradient(145deg, #0f766e, #1d4ed8); }
+    .iso-cube .left { transform: rotateY(-90deg) translateZ(39px); opacity: 0.56; }
+    .iso-cube .top { transform: rotateX(90deg) translateZ(39px); background: linear-gradient(145deg, #5eead4, #93c5fd); }
+    .iso-cube .bottom { transform: rotateX(-90deg) translateZ(39px); opacity: 0.48; }
+
+    .iso-cube i {
+      inset: 0;
+      transform: translateZ(41px);
+    }
+
+    .data-cylinder {
+      width: 92px;
+      height: 116px;
+      transform: rotateX(62deg) rotateZ(-18deg);
+      animation-delay: 1.1s;
+    }
+
+    .data-cylinder span {
+      position: absolute;
+      left: 0;
+      width: 92px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(13, 18, 24, 0.1);
+      background: linear-gradient(145deg, #fef3c7, #f59e0b);
+    }
+
+    .data-cylinder .cap { top: 0; z-index: 2; }
+    .data-cylinder .base { bottom: 0; background: linear-gradient(145deg, #d97706, #92400e); }
+    .data-cylinder .side {
+      top: 18px;
+      height: 82px;
+      border-radius: 0;
+      border-top: 0;
+      border-bottom: 0;
+      background: linear-gradient(90deg, #f59e0b, #fbbf24 48%, #b45309);
+    }
+
+    .data-cylinder b {
+      inset: 22px 0 auto;
+      height: 36px;
+      z-index: 3;
+      color: #111827;
+    }
+
+    .server-stack {
+      width: 138px;
+      height: 104px;
+      transform: rotateX(62deg) rotateZ(18deg);
+      animation-delay: 2s;
+    }
+
+    .server-stack span {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, #111827, #334155);
+      box-shadow: 10px 12px 0 rgba(15, 23, 42, 0.14);
+    }
+
+    .server-stack span:nth-child(1) { top: 0; }
+    .server-stack span:nth-child(2) { top: 34px; background: linear-gradient(145deg, #0f766e, #134e4a); }
+    .server-stack span:nth-child(3) { top: 68px; }
+
+    .server-stack i {
+      inset: 36px 0 auto;
+      height: 28px;
+    }
+
+    .automation-arm {
+      width: 150px;
+      height: 130px;
+      transform: rotateX(54deg) rotateZ(-24deg);
+      animation-delay: 3s;
+    }
+
+    .automation-arm span {
+      position: absolute;
+      display: block;
+      background: linear-gradient(145deg, #e2e8f0, #94a3b8);
+      border: 1px solid rgba(13, 18, 24, 0.12);
+      box-shadow: 0 18px 28px rgba(13, 18, 24, 0.12);
+    }
+
+    .automation-arm .base {
+      width: 56px;
+      height: 24px;
+      left: 12px;
+      bottom: 16px;
+      border-radius: 50%;
+    }
+
+    .automation-arm .joint {
+      width: 34px;
+      height: 34px;
+      left: 44px;
+      bottom: 34px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #14b8a6, #0f766e);
+    }
+
+    .automation-arm .arm {
+      width: 98px;
+      height: 18px;
+      left: 62px;
+      bottom: 58px;
+      border-radius: 999px;
+      transform-origin: left center;
+      transform: rotate(-18deg);
+      animation: armSweep 4.8s ease-in-out infinite;
+    }
+
+    .automation-arm .tip {
+      width: 28px;
+      height: 28px;
+      right: -16px;
+      bottom: 60px;
+      border-radius: 6px;
+      background: linear-gradient(145deg, #2563eb, #1e40af);
+      animation: armTip 4.8s ease-in-out infinite;
+    }
+
+    .object-api { left: 72px; top: 36px; }
+    .object-db { right: 94px; top: 92px; }
+    .object-worker { left: 132px; bottom: 108px; }
+    .object-bot { right: 124px; bottom: 168px; }
 
     .node {
       position: absolute;
@@ -568,6 +744,7 @@
       min-height: 480px;
       display: flex;
       flex-direction: column;
+      position: relative;
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -631,12 +808,26 @@
       background: #fff;
       font-size: 16px;
       font-weight: 900;
+      position: relative;
+      z-index: 3;
     }
 
     .featured .project-link {
       color: #fff;
       border-color: rgba(255, 255, 255, 0.16);
       background: rgba(255, 255, 255, 0.08);
+    }
+
+    .project-card-link {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      border-radius: var(--radius);
+    }
+
+    .project-card-link:focus-visible {
+      outline: 3px solid var(--teal-2);
+      outline-offset: -5px;
     }
 
     .project h3 {
@@ -926,6 +1117,21 @@
       50% { transform: translateY(-14px); }
     }
 
+    @keyframes objectDrift {
+      0%, 100% { margin-top: 0; }
+      50% { margin-top: -16px; }
+    }
+
+    @keyframes armSweep {
+      0%, 100% { transform: rotate(-18deg); }
+      50% { transform: rotate(10deg); }
+    }
+
+    @keyframes armTip {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(10px, -8px); }
+    }
+
     @keyframes flowPulse {
       from { background-position: 0% 50%; opacity: 0.55; }
       50% { opacity: 1; }
@@ -1062,6 +1268,10 @@
       .automation-stage {
         min-height: auto;
         padding-top: 70px;
+      }
+
+      .object-layer {
+        display: none;
       }
 
       .workflow-3d {
@@ -1206,6 +1416,35 @@
             <span>Automation pipeline / leadhive</span>
             <span class="live-pill">online</span>
           </div>
+          <div class="object-layer" aria-hidden="true">
+            <div class="iso-object iso-cube object-api">
+              <span class="front"></span>
+              <span class="back"></span>
+              <span class="right"></span>
+              <span class="left"></span>
+              <span class="top"></span>
+              <span class="bottom"></span>
+              <i>API</i>
+            </div>
+            <div class="iso-object data-cylinder object-db">
+              <span class="cap"></span>
+              <span class="side"></span>
+              <span class="base"></span>
+              <b>DB</b>
+            </div>
+            <div class="iso-object server-stack object-worker">
+              <span></span>
+              <span></span>
+              <span></span>
+              <i>Worker</i>
+            </div>
+            <div class="iso-object automation-arm object-bot">
+              <span class="base"></span>
+              <span class="joint"></span>
+              <span class="arm"></span>
+              <span class="tip"></span>
+            </div>
+          </div>
           <div class="workflow-3d">
             <div class="flow one"></div>
             <div class="flow two"></div>
@@ -1257,6 +1496,7 @@
 
         <div class="project-grid">
           <article class="project featured">
+            <a class="project-card-link" href="https://github.com/mudassirabbasi1/leadhive-automation" target="_blank" rel="noreferrer" aria-label="Open LeadHive Automation repository"></a>
             <div class="project-copy">
               <div class="project-top">
                 <span class="project-type">Full-stack automation</span>
@@ -1310,6 +1550,7 @@
           </article>
 
           <article class="project">
+            <a class="project-card-link" href="https://github.com/mudassirabbasi1/TaskFlow-Pro" target="_blank" rel="noreferrer" aria-label="Open TaskFlow Pro repository"></a>
             <div class="project-copy">
               <div class="project-top">
                 <span class="project-type">Flask CRUD</span>
@@ -1339,6 +1580,7 @@
           </article>
 
           <article class="project">
+            <a class="project-card-link" href="https://github.com/mudassirabbasi1/url-shortener" target="_blank" rel="noreferrer" aria-label="Open URL Shortener repository"></a>
             <div class="project-copy">
               <div class="project-top">
                 <span class="project-type">Web utility</span>
@@ -1366,6 +1608,7 @@
           </article>
 
           <article class="project">
+            <a class="project-card-link" href="https://github.com/mudassirabbasi1/ibkr-paper-trading-app" target="_blank" rel="noreferrer" aria-label="Open IBKR Paper Trading repository"></a>
             <div class="project-copy">
               <div class="project-top">
                 <span class="project-type">Trading automation</span>
@@ -1392,6 +1635,7 @@
           </article>
 
           <article class="project">
+            <a class="project-card-link" href="https://github.com/mudassirabbasi1/LeadHive" target="_blank" rel="noreferrer" aria-label="Open LeadHive repository"></a>
             <div class="project-copy">
               <div class="project-top">
                 <span class="project-type">Static product page</span>
