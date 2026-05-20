@@ -40,11 +40,39 @@
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--ink);
       background:
-        linear-gradient(90deg, rgba(13, 18, 24, 0.045) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(13, 18, 24, 0.045) 1px, transparent 1px),
-        var(--bg);
-      background-size: 72px 72px;
+        radial-gradient(circle at 12% 18%, rgba(20, 184, 166, 0.16), transparent 28%),
+        radial-gradient(circle at 86% 4%, rgba(37, 99, 235, 0.12), transparent 24%),
+        linear-gradient(180deg, #fbfdff 0%, var(--bg) 44%, #eef4f7 100%);
       letter-spacing: 0;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      z-index: -1;
+      pointer-events: none;
+      border-radius: 999px;
+      filter: blur(10px);
+      opacity: 0.48;
+    }
+
+    body::before {
+      width: 420px;
+      height: 420px;
+      left: -120px;
+      top: 160px;
+      background: radial-gradient(circle, rgba(20, 184, 166, 0.18), transparent 66%);
+      animation: ambientDrift 16s ease-in-out infinite alternate;
+    }
+
+    body::after {
+      width: 480px;
+      height: 480px;
+      right: -160px;
+      top: 420px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.14), transparent 64%);
+      animation: ambientDrift 18s ease-in-out infinite alternate-reverse;
     }
 
     a {
@@ -260,16 +288,23 @@
       perspective: 1100px;
     }
 
-    .stage-grid {
+    .automation-stage::before {
+      content: "";
       position: absolute;
-      inset: 0;
-      opacity: 0.55;
+      inset: -35%;
+      opacity: 0.42;
       background:
-        linear-gradient(90deg, rgba(13, 18, 24, 0.08) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(13, 18, 24, 0.08) 1px, transparent 1px);
-      background-size: 44px 44px;
-      transform: rotateX(58deg) rotateZ(-33deg) translate(20px, 260px) scale(1.2);
-      transform-origin: center;
+        conic-gradient(from 90deg, transparent, rgba(20, 184, 166, 0.2), transparent 34%, rgba(37, 99, 235, 0.18), transparent 70%);
+      animation: slowSpin 24s linear infinite;
+    }
+
+    .automation-stage::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(13, 18, 24, 0.08);
+      pointer-events: none;
     }
 
     .stage-label {
@@ -334,6 +369,7 @@
       background: #ffffff;
       box-shadow: 0 28px 48px rgba(13, 18, 24, 0.12);
       transform-style: preserve-3d;
+      animation: nodeFloat 6s ease-in-out infinite;
     }
 
     .node::after {
@@ -364,19 +400,21 @@
       text-transform: uppercase;
     }
 
-    .node.api { left: 36px; top: 44px; }
-    .node.score { left: 278px; top: 126px; }
-    .node.export { left: 524px; top: 48px; }
-    .node.mail { left: 184px; top: 340px; }
-    .node.ui { left: 468px; top: 318px; }
+    .node.api { left: 36px; top: 44px; animation-delay: 0s; }
+    .node.score { left: 278px; top: 126px; animation-delay: 0.8s; }
+    .node.export { left: 524px; top: 48px; animation-delay: 1.6s; }
+    .node.mail { left: 184px; top: 340px; animation-delay: 2.4s; }
+    .node.ui { left: 468px; top: 318px; animation-delay: 3.2s; }
 
     .flow {
       position: absolute;
       height: 3px;
       border-radius: 999px;
       background: linear-gradient(90deg, var(--teal), var(--blue));
+      background-size: 220% 100%;
       box-shadow: 0 0 22px rgba(20, 184, 166, 0.36);
       transform-origin: left center;
+      animation: flowPulse 2.4s linear infinite;
     }
 
     .flow.one { width: 210px; left: 156px; top: 138px; transform: rotate(18deg); }
@@ -395,6 +433,7 @@
       background: #ffffff;
       box-shadow: 0 28px 80px rgba(13, 18, 24, 0.18);
       overflow: hidden;
+      animation: panelFloat 7s ease-in-out infinite;
     }
 
     .window-top {
@@ -463,6 +502,7 @@
       font-family: "JetBrains Mono", monospace;
       font-size: 12px;
       line-height: 1.7;
+      animation: panelFloat 6.5s ease-in-out infinite reverse;
     }
 
     .code-title {
@@ -533,6 +573,9 @@
       border-radius: var(--radius);
       background: rgba(255, 255, 255, 0.9);
       transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+      animation: riseIn 700ms ease both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 24%;
     }
 
     .project:hover {
@@ -731,6 +774,17 @@
       border-radius: 999px;
       background: #cbd5e1;
       margin: 9px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bar::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+      transform: translateX(-100%);
+      animation: shimmer 2.6s ease-in-out infinite;
     }
 
     .bar.teal { background: #5eead4; }
@@ -776,6 +830,9 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: rgba(255, 255, 255, 0.88);
+      animation: riseIn 700ms ease both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 25%;
     }
 
     .capability-number {
@@ -849,6 +906,51 @@
     .terminal-card .muted { color: #64748b; }
     .terminal-card .key { color: #7dd3fc; }
     .terminal-card .str { color: #fbbf24; }
+
+    @keyframes ambientDrift {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to { transform: translate3d(60px, -40px, 0) scale(1.08); }
+    }
+
+    @keyframes slowSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes nodeFloat {
+      0%, 100% { margin-top: 0; }
+      50% { margin-top: -12px; }
+    }
+
+    @keyframes panelFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+
+    @keyframes flowPulse {
+      from { background-position: 0% 50%; opacity: 0.55; }
+      50% { opacity: 1; }
+      to { background-position: 220% 50%; opacity: 0.55; }
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      45%, 100% { transform: translateX(100%); }
+    }
+
+    @keyframes riseIn {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
 
     .contact-band {
       display: grid;
@@ -970,7 +1072,6 @@
         margin: 0 20px;
       }
 
-      .stage-grid,
       .flow {
         display: none;
       }
@@ -1067,7 +1168,7 @@
         <a href="#stack">Code</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="button" href="mailto:abbasimudasir2098@gmail.com">Email me</a>
+      <a class="button" href="https://mail.google.com/mail/?view=cm&fs=1&to=abbasimudasir2098@gmail.com&su=Project%20Inquiry" target="_blank" rel="noreferrer">Email me</a>
     </div>
   </header>
 
@@ -1101,7 +1202,6 @@
         </div>
 
         <aside class="automation-stage" aria-label="3D automation workflow visual">
-          <div class="stage-grid"></div>
           <div class="stage-label">
             <span>Automation pipeline / leadhive</span>
             <span class="live-pill">online</span>
@@ -1399,7 +1499,7 @@
             <p>Send me a note about what you are building. I am available for backend work, automation workflows, freelance websites, and early-career software roles.</p>
           </div>
           <div class="contact-actions">
-            <a class="button" href="mailto:abbasimudasir2098@gmail.com">Email Mudassir</a>
+            <a class="button" href="https://mail.google.com/mail/?view=cm&fs=1&to=abbasimudasir2098@gmail.com&su=Project%20Inquiry" target="_blank" rel="noreferrer">Email Mudassir</a>
             <a class="button secondary" href="https://github.com/mudassirabbasi1" target="_blank" rel="noreferrer">View GitHub</a>
             <a class="button secondary" href="https://www.linkedin.com/in/mudassir-ahmed-b1b84727b/" target="_blank" rel="noreferrer">LinkedIn</a>
           </div>
