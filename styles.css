@@ -15,6 +15,22 @@
   --shadow: 0 30px 90px rgba(0, 0, 0, 0.32);
 }
 
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("assets/fonts/space-grotesk-variable.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("assets/fonts/instrument-serif.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -26,7 +42,7 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
-  font-family: Inter, Arial, sans-serif;
+  font-family: "Space Grotesk", Arial, sans-serif;
   background: var(--black);
   color: var(--text);
 }
@@ -74,10 +90,17 @@ a {
   width: 40px;
   height: 40px;
   place-items: center;
-  border-radius: 7px;
-  background: linear-gradient(135deg, var(--green), var(--blue));
-  color: #06100d;
-  font-size: 0.84rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green), var(--blue), var(--gold));
+  padding: 2px;
+  overflow: hidden;
+}
+
+.portrait-logo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .nav-links {
@@ -189,6 +212,13 @@ h1 {
   font-size: clamp(3.5rem, 8vw, 8rem);
   line-height: 0.88;
   letter-spacing: 0;
+}
+
+h1 em {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 1.08em;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .hero-copy p:not(.eyebrow) {
@@ -342,6 +372,11 @@ h1 {
   letter-spacing: 0;
 }
 
+.section h2,
+.contact h2 {
+  font-weight: 600;
+}
+
 .split p,
 .section-heading + p {
   color: var(--muted);
@@ -355,34 +390,32 @@ h1 {
 }
 
 .project-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 18px;
+  display: block;
   perspective: 1200px;
 }
 
 .project-card {
   position: relative;
-  min-height: 360px;
-  padding: 30px;
+  display: grid;
+  grid-template-columns: 90px minmax(220px, 0.62fr) minmax(300px, 0.95fr) minmax(360px, 0.8fr);
+  gap: 34px;
+  align-items: center;
+  min-height: 250px;
+  padding: 38px 0;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 8px;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.05)),
-    #10151a;
-  box-shadow: var(--shadow);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent;
   transform-style: preserve-3d;
-  transition: transform 180ms ease, border-color 180ms ease;
+  transition: transform 180ms ease, border-color 180ms ease, padding-left 180ms ease;
 }
 
 .project-card.featured {
-  min-height: 738px;
-  grid-row: span 2;
+  min-height: 310px;
 }
 
 .project-card:hover {
-  border-color: rgba(39, 211, 162, 0.45);
+  padding-left: 18px;
+  border-color: rgba(213, 168, 91, 0.62);
 }
 
 .project-card > a {
@@ -391,16 +424,26 @@ h1 {
   z-index: 5;
 }
 
+.project-card > span {
+  grid-column: 2;
+  grid-row: 1;
+}
+
 .project-card h3 {
+  grid-column: 3;
+  grid-row: 1 / span 2;
   position: relative;
   z-index: 2;
-  max-width: 620px;
-  margin: 18px 0 16px;
-  font-size: clamp(2rem, 4vw, 4.2rem);
+  margin: 0;
+  max-width: 560px;
+  font-size: clamp(2.4rem, 4.4vw, 4.9rem);
   line-height: 0.96;
+  font-weight: 600;
 }
 
 .project-card p {
+  grid-column: 4;
+  grid-row: 1 / span 2;
   position: relative;
   z-index: 2;
   max-width: 540px;
@@ -408,32 +451,46 @@ h1 {
   line-height: 1.68;
 }
 
+.case-number {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  color: rgba(246, 243, 236, 0.24);
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(3.2rem, 6vw, 7.2rem);
+  font-weight: 400;
+  line-height: 0.85;
+}
+
 .project-orb {
   position: absolute;
-  right: -90px;
-  top: -90px;
-  width: 320px;
-  height: 320px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  right: 6%;
+  top: 50%;
+  width: 220px;
+  height: 220px;
+  border: 1px solid rgba(213, 168, 91, 0.18);
   border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, rgba(39, 211, 162, 0.72), rgba(81, 169, 255, 0.14) 48%, transparent 72%);
   filter: blur(1px);
+  transform: translateY(-50%);
   animation: orbFloat 7s ease-in-out infinite;
 }
 
 .chip-row {
-  position: absolute;
+  grid-column: 2;
+  grid-row: 2;
+  position: relative;
   z-index: 2;
-  left: 30px;
-  right: 30px;
-  bottom: 30px;
+  left: auto;
+  right: auto;
+  bottom: auto;
   flex-wrap: wrap;
   gap: 8px;
+  justify-content: flex-start;
 }
 
 .chip-row small,
 .stack-marquee span {
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 0;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   color: rgba(246, 243, 236, 0.78);
@@ -544,14 +601,21 @@ h1 {
   }
 
   .proof-strip,
-  .split,
-  .project-grid {
+  .split {
     grid-template-columns: 1fr;
   }
 
+  .project-card,
   .project-card.featured {
-    min-height: 480px;
-    grid-row: auto;
+    grid-template-columns: 72px 1fr;
+    min-height: 320px;
+  }
+
+  .project-card > span,
+  .project-card p,
+  .chip-row {
+    grid-column: 2;
+    justify-content: flex-start;
   }
 }
 
@@ -596,8 +660,7 @@ h1 {
     height: 116px;
   }
 
-  .proof-strip div,
-  .project-card {
+  .proof-strip div {
     padding: 22px;
   }
 
@@ -608,12 +671,15 @@ h1 {
   }
 
   .project-card {
-    min-height: 390px;
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding: 34px 0;
   }
 
+  .project-card > span,
+  .project-card p,
   .chip-row {
-    left: 22px;
-    right: 22px;
-    bottom: 22px;
+    grid-column: auto;
+    justify-content: flex-start;
   }
 }
