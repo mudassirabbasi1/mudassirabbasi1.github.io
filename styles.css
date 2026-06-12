@@ -1,12 +1,13 @@
 :root {
-  --paper: #f4efe4;
-  --paper-deep: #e5dccb;
-  --ink: #11110f;
-  --muted: #686155;
-  --line: rgba(17, 17, 15, 0.16);
-  --champagne: #a57736;
-  --moss: #687766;
-  --blue: #385f72;
+  --paper: #f7f3ec;
+  --paper-deep: #e2d6c5;
+  --ink: #101112;
+  --muted: #5f615d;
+  --line: rgba(16, 17, 18, 0.16);
+  --champagne: #b4712b;
+  --moss: #546a60;
+  --blue: #284f66;
+  --bone: #fffaf0;
   --max: 1220px;
 }
 
@@ -32,13 +33,16 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 92px;
 }
 
 body {
   margin: 0;
   overflow-x: hidden;
   font-family: "Space Grotesk", Arial, sans-serif;
-  background: var(--paper);
+  background:
+    linear-gradient(90deg, rgba(16, 17, 18, 0.04) 1px, transparent 1px) 0 0 / 84px 84px,
+    var(--paper);
   color: var(--ink);
 }
 
@@ -59,7 +63,7 @@ a {
   min-height: 78px;
   padding: 0 max(18px, calc((100vw - var(--max)) / 2));
   border-bottom: 1px solid var(--line);
-  background: rgba(244, 239, 228, 0.78);
+  background: rgba(247, 243, 236, 0.82);
   backdrop-filter: blur(18px);
 }
 
@@ -112,9 +116,10 @@ a {
   min-height: 46px;
   padding: 0 18px;
   border: 1px solid var(--ink);
-  border-radius: 999px;
+  border-radius: 3px;
   font-weight: 700;
-  transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+  letter-spacing: 0;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
 }
 
 .nav-cta,
@@ -135,6 +140,7 @@ a {
 .nav-cta:hover,
 .button:hover {
   transform: translateY(-2px);
+  border-color: var(--champagne);
 }
 
 .hero {
@@ -161,8 +167,8 @@ a {
   inset: 0;
   z-index: -2;
   background:
-    linear-gradient(90deg, rgba(244, 239, 228, 0.96), rgba(244, 239, 228, 0.84) 42%, rgba(244, 239, 228, 0.25)),
-    linear-gradient(0deg, rgba(244, 239, 228, 0.92), rgba(244, 239, 228, 0.34) 54%, rgba(244, 239, 228, 0.84));
+    linear-gradient(90deg, rgba(247, 243, 236, 0.97), rgba(247, 243, 236, 0.86) 42%, rgba(247, 243, 236, 0.2)),
+    linear-gradient(0deg, rgba(247, 243, 236, 0.93), rgba(247, 243, 236, 0.3) 54%, rgba(247, 243, 236, 0.86));
   pointer-events: none;
 }
 
@@ -195,7 +201,7 @@ p {
 h1 {
   max-width: 950px;
   margin-bottom: 24px;
-  font-size: clamp(4rem, 9vw, 9.6rem);
+  font-size: clamp(4rem, 8.6vw, 9.2rem);
   line-height: 0.84;
   letter-spacing: 0;
 }
@@ -305,6 +311,7 @@ h1 em {
   grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+  background: rgba(255, 250, 240, 0.46);
 }
 
 .proof-strip div {
@@ -330,6 +337,7 @@ h1 em {
   width: min(var(--max), calc(100% - 40px));
   margin: 0 auto;
   padding: 128px 0;
+  scroll-margin-top: 92px;
 }
 
 .split {
@@ -359,6 +367,41 @@ h1 em {
   margin-bottom: 44px;
 }
 
+.work {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 124px max(20px, calc((100vw - var(--max)) / 2));
+  background: #0d0e0e;
+  color: var(--bone);
+}
+
+.work::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 250, 240, 0.055) 1px, transparent 1px) 0 0 / 86px 86px,
+    linear-gradient(180deg, rgba(180, 113, 43, 0.12), transparent 32%);
+  pointer-events: none;
+}
+
+.work .section-heading,
+.project-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.work .section-kicker,
+.work .project-card > span {
+  color: #d69a55;
+}
+
+.work .section-heading h2 {
+  max-width: 1080px;
+}
+
 .project-grid {
   display: block;
   perspective: 1200px;
@@ -373,15 +416,14 @@ h1 em {
   min-height: 250px;
   padding: 40px 0;
   overflow: hidden;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(255, 250, 240, 0.18);
   background: transparent;
   transform-style: preserve-3d;
-  transition: transform 180ms ease, border-color 180ms ease, padding-left 180ms ease;
+  transition: transform 180ms ease, border-color 180ms ease, opacity 180ms ease;
 }
 
 .project-card:hover {
-  padding-left: 18px;
-  border-color: rgba(165, 119, 54, 0.62);
+  border-color: rgba(214, 154, 85, 0.76);
 }
 
 .project-card > a {
@@ -407,37 +449,38 @@ h1 em {
   font-weight: 600;
 }
 
+.project-card h3::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  margin-top: 18px;
+  background: #d69a55;
+  transition: width 220ms ease;
+}
+
+.project-card:hover h3::after {
+  width: min(220px, 100%);
+}
+
 .project-card p {
   grid-column: 4;
   grid-row: 1 / span 2;
   position: relative;
   z-index: 2;
   max-width: 520px;
-  color: var(--muted);
+  color: rgba(255, 250, 240, 0.68);
   line-height: 1.68;
 }
 
 .case-number {
   grid-column: 1;
   grid-row: 1 / span 2;
-  color: rgba(17, 17, 15, 0.24);
+  color: rgba(255, 250, 240, 0.18);
   font-family: "Instrument Serif", Georgia, serif;
   font-size: clamp(3.6rem, 6vw, 7.4rem);
   font-weight: 400;
   line-height: 0.85;
-}
-
-.project-orb {
-  position: absolute;
-  right: 6%;
-  top: 50%;
-  width: 220px;
-  height: 220px;
-  border: 1px solid rgba(165, 119, 54, 0.16);
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, rgba(104, 119, 102, 0.42), rgba(56, 95, 114, 0.16) 48%, transparent 72%);
-  transform: translateY(-50%);
-  animation: orbFloat 7s ease-in-out infinite;
 }
 
 .chip-row {
@@ -452,14 +495,14 @@ h1 em {
 
 .chip-row small,
 .stack-marquee span {
-  color: var(--muted);
+  color: rgba(255, 250, 240, 0.58);
   font-size: 0.74rem;
   font-weight: 700;
 }
 
 .chip-row small::after {
   content: " /";
-  color: var(--champagne);
+  color: #d69a55;
 }
 
 .chip-row small:last-child::after {
@@ -470,12 +513,12 @@ h1 em {
   width: 100%;
   padding-right: max(20px, calc((100vw - var(--max)) / 2));
   padding-left: max(20px, calc((100vw - var(--max)) / 2));
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--bone);
+  color: var(--ink);
 }
 
 .stack-section .section-kicker {
-  color: #d7b06f;
+  color: var(--champagne);
 }
 
 .stack-marquee {
@@ -483,8 +526,8 @@ h1 em {
   gap: 12px;
   overflow: hidden;
   padding: 22px 0;
-  border-top: 1px solid rgba(244, 239, 228, 0.18);
-  border-bottom: 1px solid rgba(244, 239, 228, 0.18);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .stack-marquee div {
@@ -495,7 +538,7 @@ h1 em {
 }
 
 .stack-marquee span {
-  color: rgba(244, 239, 228, 0.78);
+  color: var(--muted);
   font-size: 1rem;
 }
 
@@ -526,10 +569,6 @@ h1 em {
 
 @keyframes cuePulse {
   50% { transform: scaleX(1.7); opacity: 0.45; }
-}
-
-@keyframes orbFloat {
-  50% { transform: translate3d(-18px, 24px, 0) translateY(-50%) scale(1.08); }
 }
 
 @keyframes marquee {
@@ -629,6 +668,11 @@ h1 em {
   .contact {
     width: calc(100% - 32px);
     padding: 86px 0;
+  }
+
+  .work {
+    width: 100%;
+    padding: 86px 16px;
   }
 
   .project-card {
