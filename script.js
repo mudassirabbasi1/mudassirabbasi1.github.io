@@ -35,7 +35,7 @@ async function bootThreeScene() {
 
   const THREE = await import("./assets/three.module.min.js");
   const scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0xf4efe4, 0.038);
+  scene.fog = new THREE.FogExp2(0x0a0908, 0.038);
 
   const renderer = new THREE.WebGLRenderer({
     canvas,
@@ -45,7 +45,7 @@ async function bootThreeScene() {
     powerPreference: "high-performance",
   });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.8));
-  renderer.setClearColor(0xf4efe4, 1);
+  renderer.setClearColor(0x0a0908, 1);
 
   const camera = new THREE.PerspectiveCamera(46, 1, 0.1, 100);
   camera.position.set(0, 1.2, 8.8);
@@ -53,52 +53,52 @@ async function bootThreeScene() {
   const root = new THREE.Group();
   scene.add(root);
 
-  const hemi = new THREE.HemisphereLight(0xfffbef, 0xd4cab8, 1.65);
+  const hemi = new THREE.HemisphereLight(0xfff0dd, 0x160b04, 1.35);
   scene.add(hemi);
 
-  const key = new THREE.PointLight(0xa57736, 8, 22);
+  const key = new THREE.PointLight(0xff7a1a, 9, 24);
   key.position.set(3.4, 3.8, 4);
   scene.add(key);
 
-  const rim = new THREE.PointLight(0x385f72, 5, 20);
+  const rim = new THREE.PointLight(0xff4d00, 6, 22);
   rim.position.set(-4.6, 2.4, 2.2);
   scene.add(rim);
 
-  const blue = new THREE.PointLight(0x687766, 5, 20);
+  const blue = new THREE.PointLight(0xf2b36d, 4.5, 20);
   blue.position.set(2.8, -1.8, 5.2);
   scene.add(blue);
 
   const glass = new THREE.MeshPhysicalMaterial({
-    color: 0xd8d0bf,
-    metalness: 0.36,
-    roughness: 0.2,
+    color: 0x21140c,
+    metalness: 0.5,
+    roughness: 0.18,
     transmission: 0.1,
     thickness: 0.7,
     transparent: true,
-    opacity: 0.62,
+    opacity: 0.72,
     clearcoat: 0.85,
     clearcoatRoughness: 0.15,
   });
 
   const greenMat = new THREE.MeshStandardMaterial({
-    color: 0x687766,
-    metalness: 0.45,
-    roughness: 0.28,
-    emissive: 0x10140f,
+    color: 0xff7a1a,
+    metalness: 0.48,
+    roughness: 0.24,
+    emissive: 0x371000,
   });
 
   const goldMat = new THREE.MeshStandardMaterial({
-    color: 0xa57736,
-    metalness: 0.55,
-    roughness: 0.22,
-    emissive: 0x2a1806,
+    color: 0xf2b36d,
+    metalness: 0.6,
+    roughness: 0.2,
+    emissive: 0x321300,
   });
 
   const blueMat = new THREE.MeshStandardMaterial({
-    color: 0x385f72,
+    color: 0xff4d00,
     metalness: 0.45,
     roughness: 0.25,
-    emissive: 0x07182a,
+    emissive: 0x2b0800,
   });
 
   const core = new THREE.Mesh(new THREE.IcosahedronGeometry(1.06, 2), glass);
@@ -106,7 +106,7 @@ async function bootThreeScene() {
 
   const wire = new THREE.Mesh(
     new THREE.IcosahedronGeometry(1.38, 1),
-    new THREE.MeshBasicMaterial({ color: 0xa57736, wireframe: true, transparent: true, opacity: 0.32 })
+    new THREE.MeshBasicMaterial({ color: 0xff7a1a, wireframe: true, transparent: true, opacity: 0.42 })
   );
   root.add(wire);
 
@@ -151,7 +151,7 @@ async function bootThreeScene() {
     return group;
   });
 
-  const lineMat = new THREE.LineBasicMaterial({ color: 0x687766, transparent: true, opacity: 0.34 });
+  const lineMat = new THREE.LineBasicMaterial({ color: 0xff7a1a, transparent: true, opacity: 0.32 });
   labels.forEach(([, , position]) => {
     const points = [new THREE.Vector3(0, 0, 0), new THREE.Vector3(...position)];
     const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), lineMat);
@@ -171,7 +171,7 @@ async function bootThreeScene() {
   particles.setAttribute("position", new THREE.BufferAttribute(positions, 3));
   const particleMesh = new THREE.Points(
     particles,
-    new THREE.PointsMaterial({ color: 0x5f675c, size: 0.018, transparent: true, opacity: 0.42 })
+    new THREE.PointsMaterial({ color: 0xffb066, size: 0.018, transparent: true, opacity: 0.48 })
   );
   scene.add(particleMesh);
 
@@ -224,7 +224,7 @@ function makeLabelTexture(THREE, text) {
   canvas.height = 128;
   const ctx = canvas.getContext("2d");
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "rgba(17, 17, 15, 0.86)";
+  ctx.fillStyle = "rgba(255, 243, 227, 0.88)";
   ctx.font = "700 42px Space Grotesk, Arial, sans-serif";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
